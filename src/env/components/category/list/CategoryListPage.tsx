@@ -28,14 +28,14 @@ const CategoryListPage = () => {
 
   return (
     <>
-      <h1 className="text-center">Список категорій</h1>
+      <h1 className="text-center">Category List</h1>
       <table className="table">
         <thead>
           <tr>
-            <th scope="col">Фото</th>
-            <th scope="col">Назва</th>
-            <th scope="col">Батько</th>
-            <th scope="col">Опис</th>
+            <th scope="col">Image</th>
+            <th scope="col">Name</th>
+            <th scope="col">Parent</th>
+            <th scope="col">Description</th>
           </tr>
         </thead>
         <tbody>
