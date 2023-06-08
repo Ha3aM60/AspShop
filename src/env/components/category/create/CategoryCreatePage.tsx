@@ -3,8 +3,9 @@ import http from "../../../../http";
 import { ICategoryCreate } from "./types";
 import * as yup from "yup";
 import { useFormik } from "formik";
-import { ChangeEvent } from "react";
+import { ChangeEvent, useEffect, useState } from "react";
 import classNames from "classnames";
+import { ICategoryItem } from "../list/types";
 
 const CategoryCreatePage = () => {
 
@@ -14,13 +15,13 @@ const CategoryCreatePage = () => {
         priority: 0,
         image: null,
         description: "",
-        parentid: 0
+        parentId: 0
     };
 
     const createSchema = yup.object({
         name: yup.string().required("Enter name!"),
         description: yup.string().required("Enter description!"),
-        parentid: yup.string().required("Enter parent ID!")
+        parentId: yup.string().required("Enter parent ID!")
     })
 
     const onSubmitFormikData = (values: ICategoryCreate) => {
@@ -47,6 +48,15 @@ const CategoryCreatePage = () => {
         }
       };
       const { values, errors, touched, handleSubmit, handleChange } = formik;
+
+      const [list, setList] = useState<ICategoryItem[]>([]);
+
+      useEffect(() => {
+        http.get("api/Categories/list").then((resp) => {
+          const data = resp.data;
+          setList(data);
+        });
+      }, []);
 
       return (
         <>
@@ -83,19 +93,28 @@ const CategoryCreatePage = () => {
             </div>
 
             <div className="mb-3">
-              <label htmlFor="parentid" className="form-label">
-                Parent Id
-              </label>
-              <input
-                type="number"
-                className={classNames("form-control", { "is-invalid": errors.parentid && touched.parentid })}
-                id="parentid"
-                name="parentid"
-                value={values.parentid}
+          <label htmlFor="priority" className="form-label">
+            Батьківська категорія (Не обовязково)
+          </label>
+          <select
+            className="form-select"
+            aria-label="Default select example"
+            id="parentId"
+            name="parentId"
+            onChange={handleChange}
+          >
+            <option selected>Обрати категорію</option>
+            {list.map((category) => (
+              <option
                 onChange={handleChange}
-              />
-              {errors.parentid && touched.parentid && <div className="invalid-feedback">{errors.parentid}</div>}
-            </div>
+                key={category.id}
+                value={category.id}
+              >
+                {category.name}
+              </option>
+            ))}
+          </select>
+        </div>
       
             <div className="mb-3">
               <label htmlFor="image" className="form-label">

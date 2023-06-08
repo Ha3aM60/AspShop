@@ -3,5 +3,5 @@ export interface ICategoryCreate{
     priority: number,
     image:File|null,
     description:string
-    parentid: number
+    parentId: number
 }

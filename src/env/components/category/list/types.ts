@@ -1,8 +1,9 @@
-export interface ICategoryItem{
+export interface ICategoryItem {
     "id": number,
     "name": string,
     "priority": number,
     "image": string,
     "description": string,
-    "parentId": number|null|undefined
+    "parentId": number | null | undefined,
+    "parentName": string
 }

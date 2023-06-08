@@ -2,9 +2,9 @@ import { Link } from "react-router-dom";
 import "./DefaultHeader.css";
 
 const DefaultHeader = () => {
-    return (
-        <>
-            <header data-bs-theme="dark">
+  return (
+    <>
+      <header data-bs-theme="dark">
         <nav className="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
           <div className="container">
             <Link className="navbar-brand" to="/">
@@ -28,20 +28,24 @@ const DefaultHeader = () => {
                     Add
                   </Link>
                 </li>
-                <li className="nav-item">
-                  <a className="nav-link " href="#">
-                    Link
-                  </a>
-                </li>
               </ul>
-              <Link className="btn btn-primary" aria-current="page" to="/Auth/register">
+              <ul className="navbar-nav">
+                <li className="nav-item">
+                  <Link className="nav-link" aria-current="page" to="/Auth/register">
                     Sign up
                   </Link>
+                </li>
+                <li className="nav-item">
+                  <Link className="btn btn-primary" aria-current="page" to="/Auth/login">
+                    Sign in
+                  </Link>
+                </li>
+              </ul>
             </div>
           </div>
         </nav>
       </header>
-        </>
-    );
+    </>
+  );
 }
 export default DefaultHeader

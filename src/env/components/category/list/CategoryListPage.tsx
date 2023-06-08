@@ -19,9 +19,9 @@ const CategoryListPage = () => {
   const mapList = list.map(category => (
     <tr key={category.id}>
         <td>
-        <img src={`${APP_ENV.BASE_URL}images/${category.image}`} alt="фото" width={50}/></td>
+        <img src={`${APP_ENV.BASE_URL}images/50_${category.image}`} alt="фото" width={50}/></td>
         <td>{category.name}</td>
-        <td>{category.parentId}</td>
+        <td>{category.parentName}</td>
         <td>{category.description}</td>
     </tr>
   ));

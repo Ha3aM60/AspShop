@@ -5,6 +5,7 @@ import DefaultLayout from './env/components/containers/default/DefaultLayout';
 import CategoryListPage from './env/components/category/list/CategoryListPage';
 import CategoryCreatePage from './env/components/category/create/CategoryCreatePage';
 import RegisterPage from './env/components/Auth/RegisterPage';
+import LoginPage from './env/components/Auth/Login/LoginPage';
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
           <Route index element={<CategoryListPage/>} />
           <Route path ="categories/create" element={<CategoryCreatePage/>}/>
           <Route path ="/Auth/register" element={<RegisterPage/>}/>
+          <Route path ="/Auth/login" element={<LoginPage/>}/>
         </Route>
       </Routes>
     </>
