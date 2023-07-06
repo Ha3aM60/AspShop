@@ -10,6 +10,8 @@ import HomePage from './env/components/home/HomePage';
 import AdminLayout from './env/components/containers/admin/container/AdminLayout';
 import AdminHomePage from './env/components/containers/admin/home/AdminHomePage';
 import ForbiddenPage from './env/components/containers/admin/pages/ForbiddenPage';
+import ProductListPage from './env/components/containers/admin/products/list/ProductListPage';
+import ProductCreatePage from './env/components/containers/admin/products/create/ProductCreatePage';
 
 function App() {
   return (
@@ -22,14 +24,18 @@ function App() {
         </Route>
 
         <Route path={"/pages"}>
-                    <Route path={"403"} element={<ForbiddenPage/>} />
-                </Route>
+          <Route path={"403"} element={<ForbiddenPage />} />
+        </Route>
 
         <Route path={"/admin"} element={<AdminLayout />}>
           <Route index element={<AdminHomePage />} />
           <Route path={"categories"}>
             <Route index element={<CategoryListPage />} />
             <Route path="categories/create" element={<CategoryCreatePage />} />
+          </Route>
+          <Route path={"products"}>
+            <Route index element={<ProductListPage />} />
+            <Route path='create' element={<ProductCreatePage/>}/>
           </Route>
         </Route>
       </Routes>

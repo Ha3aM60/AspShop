@@ -21,10 +21,10 @@ const AdminSidebar = () => {
                             </Link>
                         </li>
                         <li className="nav-item">
-                            <a className="nav-link d-flex align-items-center gap-2" href="#">
+                            <Link className="nav-link d-flex align-items-center gap-2" to="/admin/products">
                                 <i className={"bi bi-cart"}></i>
                                 Products
-                            </a>
+                            </Link>
                         </li>
                         <li className="nav-item">
                             <a className="nav-link d-flex align-items-center gap-2" href="#">

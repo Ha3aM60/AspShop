@@ -7,9 +7,9 @@ import {useEffect} from "react";
 import { IAuthUser } from "../../../Auth/AuthReducer/types";
 
 const AdminLayout = () => {
-    const navigate = useNavigate();
+    /* const navigate = useNavigate();
     const {isAuth, user} = useSelector((store: any) => store.auth as IAuthUser);
-    const isAdmin = user?.roles === "Admin";
+    const isAdmin = user?.roles === "admin";
     useEffect(() => {
         if(isAuth)
         {
@@ -19,7 +19,7 @@ const AdminLayout = () => {
         else {
             navigate('/login');
         }
-    },[]);
+    },[]); */
     return (
         <>
             <AdminHeader/>
@@ -27,7 +27,7 @@ const AdminLayout = () => {
                 <div className="row">
                     <AdminSidebar/>
                     <main className="col-sm-8 col-md-9 ms-sm-auto col-lg-10 px-md-4">
-                        {isAdmin && <Outlet/> }
+                        {/* {isAdmin &&  */}<Outlet/> {/* } */}
                     </main>
                 </div>
             </div>
